@@ -1,0 +1,109 @@
+//imported all partial fies required
+@import '../variable', '../grid';
+
+/********************************* Style for left panel ********************************/
+.side-panel-bg {
+    height: 100%;
+    width: 250px;;
+    background: $sidebar-bg;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    h2 {
+        color: $font-color-white;
+        padding: 50px 0;
+        margin: 0;
+        text-align: center;
+    }
+}
+
+.form-controls {
+    padding: 18px;
+    font-size: $font-size-21px;
+    color: $form-control-color;
+    display: block;
+    cursor: move;
+    text-align: center;
+}
+/********************************* Style for left panel ********************************/
+
+/********************************* Style for right panel and form ********************************/
+h1 {
+    color: $sidebar-bg;
+    border: 1px dashed grey;
+    padding: 25px;
+    margin: 10px 10px 20px 30px;
+    text-align: center;
+}
+
+.form-bg {
+    background: $form-background;
+    border-radius: 4px;
+    width: 500px;
+    margin-left: 30%;
+    min-height: 60px;
+    box-shadow: $hover-shadow;
+}
+  
+.form-list {
+    padding: 15px 10px;
+    color: $sidebar-bg;
+    display: flex;
+    cursor: move;
+    background: $form-background;
+}
+
+input {
+    height: 35px;
+}
+input[type="text"],[type="number"],[type="email"], textarea {
+    font-size: $font-size-15px;
+    padding-left: 10px;
+    box-shadow: $form-field-shadow;
+    border-color: $form-field-border-color;
+    border-radius: 6px;
+    border-width: 2px;
+}
+
+input[type="radio"], [type="checkbox"] {
+    height: 14px;
+    position: relative;
+    right: 8.4%;
+}
+
+.submit-button {
+    width: 80px;
+    padding: 10%;
+    background: $sidebar-bg;
+    border-radius: 8px;
+    color: $font-color-white;
+    font-size: $font-size-17px;
+    cursor: pointer;
+
+    &:hover{
+        box-shadow: $form-field-shadow;
+    }
+}
+
+/********************************* Style for right panel and form ********************************/
+
+/********************* Style for smooth transition between drag and drop list ********************/
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.cdk-drag-placeholder { opacity: 0; }
+.cdk-drag-animating { transition: transform 250ms cubic-bezier(0, 0, 0.2, 1); }
+.form-list:last-child { border: none; }
+.form-controls:last-child { border: none; }
+.form-bg.cdk-drop-list-dragging .form-list:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+.side-panel.cdk-drop-list-dragging .form-controls:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+/********************* Style for smooth transition between drag and drop list ********************/

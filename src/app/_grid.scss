@@ -1,0 +1,58 @@
+
+/***************************** Custom grid style for the web page *****************************/
+
+//class for margin adn padding of flex boxes
+.border-box {
+    padding: 8%;
+    text-align: justify;
+    margin: 4%;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+    //for loop to display more than one columns and iterate upto 12
+    @media only screen and (min-width: 1025px) and (max-width: 2560px) {
+       @for $i from 1 through $columns {
+            .col-xl-#{$i} {
+                flex: 0 0 100% / $columns * $i;
+            }
+        }
+    }
+    @media (max-width: 1024px) {
+        @for $i from 1 through $columns {
+            .col-lg-#{$i} {
+                flex: 0 0 100% / $columns * $i;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        @for $i from 1 through $columns {
+            .col-md-#{$i} {
+                flex: 0 0 100% / $columns * $i;
+            }
+        } 
+    }
+    @media only screen and  (min-width: 481px) and (max-width: 767px) { 
+        @for $i from 1 through $columns {
+            .col-sm-#{$i} {
+                flex: 0 0 100% / $columns * $i;
+            }
+        } 
+    }
+    @media only screen and  (min-width: 361px) and (max-width: 480px) { 
+        @for $i from 1 through $columns {
+            .col-sm-#{$i} {
+                flex: 0 0 100% / $columns * $i;
+            }
+        } 
+    }
+    @media only screen and (min-width: 320px) and (max-width: 360px) { 
+        @for $i from 1 through $columns {
+            .col-xs-#{$i} {
+                flex: 0 0 100% / $columns * $i;
+            }
+        } 
+    }
+}
+/***************************** Custom grid style for the web page *****************************/

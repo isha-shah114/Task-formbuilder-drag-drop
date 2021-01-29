@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div cdkDropListGroup>
+            <div class="row">
+                <!-- Left panel starts -->
+                <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                    <div class="side-panel-bg"> <!-- class for side panel background and position -->
+                        <h2>Form Builder</h2>
+                        <div
+                            cdkDropList
+                            [cdkDropListData]="formControls"
+                            class="side-panel"
+                            (cdkDropListDropped)="drop($event)">
+                            <!-- for loop to fetch the names of form controls from array -->
+                            <div class="form-controls" *ngFor="let item of formControls" cdkDrag>{{item.name}}</div>
+                        </div> 
+                    </div>
+                </div>
+                <!-- Left panel finish -->
+
+                <!-- Right panel starts -->
+                <div class="col-xs-12 col-sm-6 col-md-10 col-lg-10 col-xl-10">
+                    <h1>Drag form controls here</h1>
+                    <div 
+                        cdkDropList
+                        [cdkDropListData]="formFields"
+                        class="form-bg"
+                        (cdkDropListDropped)="drop($event)">
+                        <!-- for loop to display particular field on dragging each form control -->
+                        <div class="form-list" *ngFor="let item of formFields" cdkDrag>
+                            <!-- comparing array value with left panel form controls --> 
+                            <div *ngIf="item.inputType == 'text'">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="textField" 
+                                        placeholder="Enter text here" />
+                                </div> 
+                            </div>
+                            <div *ngIf="item.inputType == 'email'">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="textField" 
+                                        placeholder="Enter email here" />
+                                </div>
+                            </div>
+                            <div *ngIf="item.inputType == 'number'">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="numberField" 
+                                        placeholder="Enter number here" />
+                                </div>
+                            </div>
+                            <div *ngIf="item.inputType == 'textarea'">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="textarea" 
+                                    placeholder="Enter message here"
+                                        rows="5" cols="29" ></textarea>
+                                </div>
+                            </div>
+                            <div *ngIf="item.inputType == 'radiobutton'">
+                                <div class="form-group">
+                                    <input type="radio"> Radio Button 
+                                </div>
+                            </div>
+                            <div *ngIf="item.inputType == 'checkbox'">
+                                <div class="form-group">
+                                    <input type="checkbox">Check Box
+                                </div>
+                            </div>
+                            <div *ngIf="item.inputType == 'button'">
+                                <div class="form-group">
+                                    <button type="submit" class="submit-button form-control">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right panel finish -->
+            </div>
+        </div>
+    </body>
+</html>
