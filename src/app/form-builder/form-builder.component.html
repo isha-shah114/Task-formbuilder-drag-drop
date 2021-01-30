@@ -58,15 +58,36 @@
                                         rows="5" cols="29" ></textarea>
                                 </div>
                             </div>
+                            <!-- fetching value of radio buttons from array --> 
                             <div *ngIf="item.inputType == 'radiobutton'">
-                                <div class="form-group">
-                                    <input type="radio"> Radio Button 
+                                <label id="radio-group-label">Pick your favorite season</label>
+                                <mat-radio-group
+                                    aria-labelledby="radio-group-label"
+                                    class="radio-group">
+                                    <mat-radio-button class="radio-button" 
+                                    *ngFor="let season of seasons" [value]="season" 
+                                    (change)="radioChangeHandler($event)">
+                                        {{season}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                                <!-- fetching value of selected radio button and displaying it in 
+                                     text field to edit --> 
+                                <div *ngIf="checked == true">
+                                    <label>Edit name from here: </label>
+                                    <div class="form-group">
+                                        <input [value]="favoriteSeason" #updatedName type="text" 
+                                        class="form-control">
+                                        <!-- calling update method on clicking the update button to update new
+                                             name of selected radio button --> 
+                                        <button type="submit" class="update-button form-control" 
+                                        (click)="updateName(updatedName.value)">Update</button>
+                                    </div>
                                 </div>
                             </div>
                             <div *ngIf="item.inputType == 'checkbox'">
-                                <div class="form-group">
-                                    <input type="checkbox">Check Box
-                                </div>
+                                <section class="checkbox">
+                                    <mat-checkbox class="checbox-margin">Check Box</mat-checkbox>
+                                </section>
                             </div>
                             <div *ngIf="item.inputType == 'button'">
                                 <div class="form-group">

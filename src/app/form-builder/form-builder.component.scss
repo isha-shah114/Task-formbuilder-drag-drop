@@ -66,24 +66,51 @@ input[type="text"],[type="number"],[type="email"], textarea {
     border-width: 2px;
 }
 
-input[type="radio"], [type="checkbox"] {
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    .radio-button { margin: 5px; }
+}
+
+label { line-height: 30px; }
+
+.form-button {
+    width: 80px;
+    background: #303a45;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+
+    &:hover{
+        box-shadow: $form-field-shadow;
+    }
+}
+
+.update-button {
+    @extend .form-button;
+    padding: 8px;
+    margin-left: 20px;
+}
+
+.checkbox {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+    .checkbox-margin { margin: 0 10px; }
+}
+
+input[type="checkbox"] {
     height: 14px;
     position: relative;
     right: 8.4%;
 }
 
 .submit-button {
-    width: 80px;
+    @extend .form-button;
     padding: 10%;
-    background: $sidebar-bg;
-    border-radius: 8px;
-    color: $font-color-white;
-    font-size: $font-size-17px;
-    cursor: pointer;
-
-    &:hover{
-        box-shadow: $form-field-shadow;
-    }
 }
 
 /********************************* Style for right panel and form ********************************/
