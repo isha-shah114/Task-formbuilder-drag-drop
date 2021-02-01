@@ -95,12 +95,13 @@ label { line-height: 30px; }
 }
 
 .checkbox {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    height: 60px;
+    margin: 12px 0;
     .checkbox-margin { margin: 0 10px; }
 }
+ul {
+    list-style-type: none;
+    margin-top: 4px;
+  }
 
 input[type="checkbox"] {
     height: 14px;
@@ -134,3 +135,261 @@ input[type="checkbox"] {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 /********************* Style for smooth transition between drag and drop list ********************/
+
+/********************************* Responsiveness ********************************/
+@media only screen and (min-width: 1681px) and (max-width: 1920px) {
+    h2 { 
+        
+        &:after {
+            padding-top: 1.3%;
+            width: 4%;
+            left: 48%; 
+        }
+    } 
+    .title-padding {
+        margin: 0.5% 0 0 6%;
+    }
+}
+@media only screen and (min-width: 1441px) and (max-width: 1680px) {
+    h2 { 
+        
+        &:after {
+            padding-top: 1.6%;
+            width: 4%;
+            left: 48%; 
+        }
+    } 
+    .title-padding {
+        margin: 0.5% 0 0 6%;
+    }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    h2 { 
+        
+        &:after {
+            padding-top: 2.3%;
+        }
+    } 
+    .title-padding {
+        margin: 0.5% 0 0 6%;
+    }
+}
+@media (max-width: 1024px) {
+    h2 { 
+        &:after {
+            padding-top: 3.8%;
+            width: 12%;
+            left: 44%;
+        }
+    }
+    .border-box {
+        font-size: small;
+        text-align: center;
+    }
+    .description { 
+        line-height: 15px;
+     }
+    .title-padding {
+        margin: 0.5% 0 0 6%;
+    }
+    footer {
+        .border-box {
+            margin: 0;
+            padding: 0 8%;
+        }
+        //class for moving content of second column towards left
+        .content-ml { margin-left: 0; }
+        p { 
+            line-height: 12px;
+            font-size: smaller;
+        }
+        ul { 
+            line-height: 12px; 
+            margin-left: -40px;
+            font-size: smaller;
+        }
+    } 
+    .copyright {
+        font-size: smaller;
+    }    
+}
+@media (max-width: 768px) {
+    h2 { 
+        &:after {
+            padding-top: 3.8%;
+            width: 12%;
+            left: 44%;
+        }
+    }
+    .border-box {
+        font-size: small;
+        text-align: center;
+    }
+    .description { 
+        line-height: 15px;
+     }
+    .testimonial-img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    footer {
+        .border-box {
+            margin: 0;
+            padding: 0 8%;
+        }
+        //class for moving content of second column towards left
+        .content-ml { margin-left: 0; }
+        p { 
+            line-height: 12px;
+            
+        }
+        ul { 
+            line-height: 12px; 
+            margin-left: -40px;
+            
+        }
+    } 
+    .copyright {
+        font-size: smaller;
+    }    
+}
+@media only screen and (min-width: 540px) and (max-width: 767px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+    
+    h2 { 
+        &:after {
+            padding-top: 5.8%;
+            width: 12%;
+            left: 44%;
+        }
+    }
+    .border-box {
+        font-size: small;
+        text-align: center;
+    }
+    .description { 
+        line-height: 15px;
+     }
+    .testimonial-img {
+        width: 30px;
+        height: 30px;
+    }
+    .title-padding {
+        margin: 1.5% 0 0 7%;
+        
+        
+    }
+    footer {
+        .border-box {
+            margin: 0;
+            padding: 0 8%;
+        }
+        //class for moving content of second column towards left
+        .content-ml { margin-left: 0; }
+        p { 
+            line-height: 12px;
+            
+        }
+        ul { 
+            line-height: 12px; 
+            margin-left: -40px;
+            
+        }
+    } 
+    .copyright {
+        font-size: smaller;
+    }    
+}
+@media only screen and  (min-width: 481px) and (max-width: 539px) {
+    
+    h2 { 
+        
+        &:after {
+            padding-top: 5.8%;
+            width: 12%;
+            left: 44%;
+        }
+    } 
+    .title-padding {
+        margin: 1.5% 0 0 7%;
+       
+        
+    }
+}
+@media only screen and  (min-width: 361px) and (max-width: 480px) {
+   
+    h2 { 
+        
+        &:after {
+            padding-top: 5.8%;
+            width: 12%;
+            left: 44%;
+        }
+    }
+    .border-box {
+        font-size: xx-small;
+        text-align: center;
+    }
+    .description { 
+        line-height: 12px;
+        padding: 11%;
+     }
+    .testimonial-img {
+        width: 30px;
+        height: 30px;
+    }
+    .title-padding {
+        margin: 1.5% 0 0 10%;
+       
+        
+    }
+    footer {
+        .border-box {
+            margin: 0;
+            padding: 0 8%;
+        }
+        //class for moving content of second column towards left
+        .content-ml { margin-left: 0; }
+        p { 
+            line-height: 12px;
+            
+        }
+        ul { 
+            line-height: 12px; 
+            margin-left: -40px;
+            
+        }
+    } 
+    .copyright {
+        font-size: smaller;
+    }    
+}
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+    .side-panel-bg {
+        width: 100%;
+        height: 277%;
+        position: relative;
+        h2 { 
+            font-size: $font-size-larger;
+            padding: 30px 0; 
+        }
+    }
+    .form-controls { font-size: $font-size-17px; }
+    h1 {
+        padding: 15px;
+        margin: 10px 10px 20px 10px;
+        font-size: larger;
+    }
+    .form-bg {
+        border-radius: 4px;
+        width: 500px;
+        margin: 0 40px;
+        min-height: 60px;
+    }
+}
+/********************************* Responsiveness ********************************/

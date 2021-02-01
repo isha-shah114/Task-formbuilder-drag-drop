@@ -2,14 +2,8 @@
 /***************************** Custom grid style for the web page *****************************/
 
 //class for margin adn padding of flex boxes
-.border-box {
-    padding: 8%;
-    text-align: justify;
-    margin: 4%;
-}
 .row {
     display: flex;
-    flex-wrap: wrap;
 
     //for loop to display more than one columns and iterate upto 12
     @media only screen and (min-width: 1025px) and (max-width: 2560px) {

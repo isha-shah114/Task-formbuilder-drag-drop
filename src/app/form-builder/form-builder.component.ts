@@ -18,9 +18,20 @@ export class FormBuilderComponent {
     { name: 'Button', inputType: 'button' },
   ];
   formFields: string[] = []; // empty array to store form fields
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn']; // array to for radio button group
-  favoriteSeason: string; // to store value of selected radio button
+  radioGroup: string[] = ['Radio 1', 'Radio 2', 'Radio 3', 'Radio 4']; // array for radio button group
+  selectedRadioButton: string; // to store value of selected radio button
   checked = false; // default value of radio buttons
+
+  checkGroup : any;
+  selectAll = false;
+
+  constructor(){
+    this.checkGroup=[
+      {name : "Checkbox 1", checked : false},
+      {name : "Checkbox 2", checked : true},
+      {name : "Checkbox 3", checked : false}
+    ];
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     //if condition for moving items in array itself
@@ -43,28 +54,43 @@ export class FormBuilderComponent {
     }
   }
   radioChangeHandler (event: any){
-    this.favoriteSeason = event.value;
+    this.selectedRadioButton = event.value;
     this.checked = true;
   }
 
   // function to update the selected radio button name
   updateName(updatedName) {
     // compariing if selected radio button name and updated name are not same
-    if(this.favoriteSeason !== updatedName) {
-      for(let i = 0; i < this.seasons.length; i++)
+    if(this.selectedRadioButton !== updatedName) {
+      for(let i = 0; i < this.radioGroup.length; i++)
       {
-        // compariing if selected radio button name and value in array are same or not
-        if(this.seasons[i] == this.favoriteSeason)
+        // comparing if selected radio button name and value in array are same or not
+        if(this.radioGroup[i] == this.selectedRadioButton)
         {
           // assigning updated name to existing array value
-          this.seasons[i] = updatedName;
-          alert(this.favoriteSeason+ " is changed to "+updatedName);
+          this.radioGroup[i] = updatedName;
+          alert(this.selectedRadioButton+ " is changed to "+updatedName);
         }
       }
     }
     // else condition if the updated name already exist in array
     else {
       alert("Name already exist");
+    }
+  }
+
+  // function to select all checkboxes
+  updateCheck(){
+    console.log(this.selectAll);
+    if(this.selectAll === true){
+      this.checkGroup.map((check)=>{
+        check.checked=true;
+      });
+      
+    }else {
+      this.checkGroup.map((check)=>{
+        check.checked=false;
+      });
     }
   }
 }

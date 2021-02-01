@@ -7,7 +7,7 @@
         <div cdkDropListGroup>
             <div class="row">
                 <!-- Left panel starts -->
-                <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2 col-xl-2">
                     <div class="side-panel-bg"> <!-- class for side panel background and position -->
                         <h2>Form Builder</h2>
                         <div
@@ -16,14 +16,15 @@
                             class="side-panel"
                             (cdkDropListDropped)="drop($event)">
                             <!-- for loop to fetch the names of form controls from array -->
-                            <div class="form-controls" *ngFor="let item of formControls" cdkDrag>{{item.name}}</div>
+                            <div class="form-controls" *ngFor="let item of formControls" cdkDrag>
+                                {{item.name}}</div>
                         </div> 
                     </div>
                 </div>
                 <!-- Left panel finish -->
 
                 <!-- Right panel starts -->
-                <div class="col-xs-12 col-sm-6 col-md-10 col-lg-10 col-xl-10">
+                <div class="col-xs-6 col-sm-8 col-md-10 col-lg-10 col-xl-10">
                     <h1>Drag form controls here</h1>
                     <div 
                         cdkDropList
@@ -60,14 +61,14 @@
                             </div>
                             <!-- fetching value of radio buttons from array --> 
                             <div *ngIf="item.inputType == 'radiobutton'">
-                                <label id="radio-group-label">Pick your favorite season</label>
+                                <label id="radio-group-label">Pick your favorite radio button</label>
                                 <mat-radio-group
                                     aria-labelledby="radio-group-label"
                                     class="radio-group">
                                     <mat-radio-button class="radio-button" 
-                                    *ngFor="let season of seasons" [value]="season" 
+                                    *ngFor="let item of radioGroup" [value]="item" 
                                     (change)="radioChangeHandler($event)">
-                                        {{season}}
+                                        {{item}}
                                     </mat-radio-button>
                                 </mat-radio-group>
                                 <!-- fetching value of selected radio button and displaying it in 
@@ -75,7 +76,7 @@
                                 <div *ngIf="checked == true">
                                     <label>Edit name from here: </label>
                                     <div class="form-group">
-                                        <input [value]="favoriteSeason" #updatedName type="text" 
+                                        <input [value]="selectedRadioButton" #updatedName type="text" 
                                         class="form-control">
                                         <!-- calling update method on clicking the update button to update new
                                              name of selected radio button --> 
@@ -84,10 +85,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- fetching value of checkbox from array --> 
                             <div *ngIf="item.inputType == 'checkbox'">
                                 <section class="checkbox">
-                                    <mat-checkbox class="checbox-margin">Check Box</mat-checkbox>
-                                </section>
+                                      <mat-checkbox class="checkbox-margin"
+                                                    [(ngModel)]="selectAll"
+                                                    (change)="updateCheck()">
+                                                    Select All
+                                      </mat-checkbox>
+                                    
+                                    <!-- fetching values of sub checkboxes and displaying it in 
+                                     below main checkbox --> 
+                                      <ul>
+                                        <li *ngFor="let check of checkGroup">
+                                          <mat-checkbox [(ngModel)]="check.checked">
+                                            {{check.name}}
+                                          </mat-checkbox>
+                                        </li>
+                                      </ul>
+                                  </section>
                             </div>
                             <div *ngIf="item.inputType == 'button'">
                                 <div class="form-group">
