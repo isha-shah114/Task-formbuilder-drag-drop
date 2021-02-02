@@ -90,22 +90,24 @@
                             <!-- fetching value of checkbox from array --> 
                             <div *ngIf="item.inputType == 'checkbox'">
                                 <section class="checkbox">
-                                      <mat-checkbox class="checkbox-margin"
-                                                    [(ngModel)]="selectAll"
-                                                    (change)="updateCheck()">
-                                                    Select All
-                                      </mat-checkbox>
+                                    <mat-checkbox class="checkbox-margin"
+                                                [(ngModel)]="selectAll"
+                                                (change)="checkUncheckAll()">
+                                                Select All
+                                    </mat-checkbox>
                                     
                                     <!-- fetching values of sub checkboxes and displaying it in 
                                      below main checkbox --> 
-                                      <ul>
+                                    <ul>
                                         <li *ngFor="let check of checkGroup">
-                                          <mat-checkbox [(ngModel)]="check.checked">
+                                            <mat-checkbox [(ngModel)]="check.isSelected"
+                                                        value="{{check.id}}" 
+                                                        (change)="isAllSelected()">
                                             {{check.name}}
-                                          </mat-checkbox>
+                                            </mat-checkbox>
                                         </li>
-                                      </ul>
-                                  </section>
+                                    </ul>
+                                </section>
                             </div>
                             <div *ngIf="item.inputType == 'button'">
                                 <div class="form-group">

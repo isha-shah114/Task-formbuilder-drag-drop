@@ -22,15 +22,17 @@ export class FormBuilderComponent {
   selectedRadioButton: string; // to store value of selected radio button
   checked = false; // default value of radio buttons
 
-  checkGroup : any; //aray of checkboxes
-  selectAll = true; //to select all checkboxes 
+  checkGroup: any; //array of checkboxes
+  checkedList: any; //to check how many checkboxes are selected
+  selectAll = false; //to select all checkboxes 
 
-  constructor(){
-    this.checkGroup=[
-      {name : "Checkbox 1", checked : false},
-      {name : "Checkbox 2", checked : true},
-      {name : "Checkbox 3", checked : false}
+  constructor() {
+    this.checkGroup = [
+      {id: 1, name : "Checkbox 1", isSelected : false},
+      {id: 2, name : "Checkbox 2", isSelected : true},
+      {id: 3, name : "Checkbox 3", isSelected : false}
     ];
+    this.getCheckedItemList();
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -80,17 +82,26 @@ export class FormBuilderComponent {
   }
 
   // function to select all checkboxes
-  updateCheck(){
-    console.log(this.selectAll);
-    if(this.selectAll === true){
-      this.checkGroup.map((check)=>{
-        check.checked=true;
-      });
-      
-    }else {
-      this.checkGroup.map((check)=>{
-        check.checked=false;
-      });
+  checkUncheckAll() {
+    for (var i = 0; i < this.checkGroup.length; i++) {
+      this.checkGroup[i].isSelected = this.selectAll;
     }
+    this.getCheckedItemList();
+  }
+   
+  isAllSelected() {
+    this.selectAll = this.checkGroup.every(function(item:any) {
+        return item.isSelected == true;
+      })
+    this.getCheckedItemList();
+  }
+  
+  getCheckedItemList(){
+    this.checkedList = [];
+    for (var i = 0; i < this.checkGroup.length; i++) {
+      if(this.checkGroup[i].isSelected)
+      this.checkedList.push(this.checkGroup[i]);
+    }
+    this.checkedList = JSON.stringify(this.checkedList);
   }
 }
