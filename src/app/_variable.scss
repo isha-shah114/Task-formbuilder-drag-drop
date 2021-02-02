@@ -4,14 +4,21 @@ $hover-shadow: 2px 2px 5px #292929; //shadow color for on hover effect for compo
 $sidebar-bg: hsl(211, 18%, 23%); //background color for left panel
 $font-color-white: #fff; //font color for left panel heading
 $form-control-color: yellow; //font color for left panel form controls
-$font-size-21px: 21px; //font size for left panel form control
+$font-size-28px: 28px; //font size for left panel heading
+$font-size-22px: 22px; //font size for left panel form control
+$font-size-12px: 12px; //font size for left panel form control
 $font-size-larger: larger; //font size for left panel heading
+$font-size-medium: medium; //font size for left panel heading
+
 
 //grid properties from grid.scss
 $columns: 12; //total columns of page
 
 // form fields properties
 $form-background: antiquewhite;
+$font-size-8px: 8px; //font size for heading
+$font-size-9px: 9px; //font size for heading
+$font-size-14px: 14px; //font size for heading
 $font-size-15px: 15px; //font size for text field placeholder
 $font-size-17px: 17px; //font size for submit button
 $form-field-shadow: 2px 2px 4px grey; //shadow color for form fields

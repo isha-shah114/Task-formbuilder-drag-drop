@@ -22,8 +22,8 @@ export class FormBuilderComponent {
   selectedRadioButton: string; // to store value of selected radio button
   checked = false; // default value of radio buttons
 
-  checkGroup : any;
-  selectAll = false;
+  checkGroup : any; //aray of checkboxes
+  selectAll = true; //to select all checkboxes 
 
   constructor(){
     this.checkGroup=[
