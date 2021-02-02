@@ -96,6 +96,7 @@ label { line-height: 30px; }
     margin-left: 20px;
 }
 
+.highlight { color: $span-error-color; }
 .checkbox {
     margin: 12px 0;
     .checkbox-margin { margin: 0 10px; }
@@ -103,14 +104,17 @@ label { line-height: 30px; }
 ul {
     list-style-type: none;
     margin-top: 4px;
-  }
+}
 
 input[type="checkbox"] {
     height: 14px;
     position: relative;
     right: 8.4%;
 }
-
+.error-message { 
+    color: $span-error-color; 
+    font-size: $font-size-12px;
+}
 .submit-button {
     @extend .form-button;
     padding: 10%;

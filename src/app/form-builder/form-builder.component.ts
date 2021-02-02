@@ -9,11 +9,11 @@ import {CdkDragDrop, moveItemInArray, copyArrayItem} from '@angular/cdk/drag-dro
 export class FormBuilderComponent {
 // array to store form control names and types
   formControls: Array<any> = [
+    { name: 'Radio button', inputType: 'radiobutton' },
     { name: 'Text', inputType: 'text' },
     { name: 'Email', inputType: 'email' },
     { name: 'Number', inputType: 'number' },
     { name: 'Textarea', inputType: 'textarea' },
-    { name: 'Radio button', inputType: 'radiobutton' },
     { name: 'Checkbox', inputType: 'checkbox' },
     { name: 'Button', inputType: 'button' },
   ];
@@ -29,7 +29,7 @@ export class FormBuilderComponent {
   constructor() {
     this.checkGroup = [
       {id: 1, name : "Checkbox 1", isSelected : false},
-      {id: 2, name : "Checkbox 2", isSelected : true},
+      {id: 2, name : "Checkbox 2", isSelected : false},
       {id: 3, name : "Checkbox 3", isSelected : false}
     ];
     this.getCheckedItemList();
@@ -102,6 +102,5 @@ export class FormBuilderComponent {
       if(this.checkGroup[i].isSelected)
       this.checkedList.push(this.checkGroup[i]);
     }
-    this.checkedList = JSON.stringify(this.checkedList);
   }
 }

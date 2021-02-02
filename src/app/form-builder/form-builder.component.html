@@ -73,6 +73,12 @@
                                         {{item}}
                                     </mat-radio-button>
                                 </mat-radio-group>
+                                <!-- validation for atleast one radio button to be checked --> 
+                                <div *ngIf="checked == false">
+                                    <p class="error-message">
+                                        At least one radio button is required to check
+                                    </p>
+                                </div>
                                 <!-- fetching value of selected radio button and displaying it in 
                                      text field to edit --> 
                                 <div *ngIf="checked == true">
@@ -89,6 +95,9 @@
                             </div>
                             <!-- fetching value of checkbox from array --> 
                             <div *ngIf="item.inputType == 'checkbox'">
+                                <label>Check at least one checkbox 
+                                    <span class="highlight">*</span>
+                                </label>
                                 <section class="checkbox">
                                     <mat-checkbox class="checkbox-margin"
                                                 [(ngModel)]="selectAll"
@@ -106,6 +115,12 @@
                                             {{check.name}}
                                             </mat-checkbox>
                                         </li>
+                                        <!-- validation for atleast one checkbox to be checked --> 
+                                        <div *ngIf="checkedList.length == 0">
+                                            <p class="error-message">
+                                                At least one checkbox is required to check
+                                            </p>
+                                        </div>
                                     </ul>
                                 </section>
                             </div>
